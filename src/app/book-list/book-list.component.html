@@ -1,0 +1,32 @@
+<div class="row m-3">
+  <div class="col-md-4 col-lg-3 col-sm-1"
+       *ngFor="let book of books">
+    <div class="card">
+      <div class="card-block text-center">
+        <h4 class="card-title">
+          <a [routerLink]="['/book', book.id]">{{ book.title }}</a>
+        </h4>
+        <h6 class="card-subtitle mb-2 text-muted">{{ book.subTitle }}</h6>
+        <div class="card-text">
+          <span *ngFor="let category of book?.categories"
+                class="badge badge-pill badge-default mr-1">
+            {{ category }}
+          </span>
+        </div>
+      </div>
+      <img class="book-thumbnail"
+           src="{{book.smallThumbnail}}"
+           alt="">
+      <div class="card-footer">
+        <span *ngIf="book.authors">
+          by
+          <span *ngFor="let author of book.authors; let isLast = last;">
+            {{ author }}
+            <span *ngIf="!isLast">,</span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>

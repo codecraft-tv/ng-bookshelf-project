@@ -1,0 +1,21 @@
+<nav>
+  <ul  class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="page === 0">
+      <button class="page-link"
+         (click)="prev()">Previous
+      </button>
+    </li>
+    <!--<li *ngFor="let page of pages; let i = index;"-->
+        <!--class="page-item">-->
+      <!--<button *ngIf="i < 10"-->
+              <!--class="page-link"-->
+         <!--(click)="page(page)">{{ page }}-->
+      <!--</button>-->
+    <!--</li>-->
+    <li class="page-item">
+      <button class="page-link"
+         (click)="next()">Next
+      </button>
+    </li>
+  </ul>
+</nav>
