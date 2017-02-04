@@ -1,11 +1,13 @@
 <div class="row m-3">
   <div class="col-md-4 col-lg-3 col-sm-1"
        *ngFor="let book of books">
-    <div class="card">
-      <div class="card-block text-center">
-        <h4 class="card-title">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
           <a [routerLink]="['/book', book.id]">{{ book.title }}</a>
-        </h4>
+        </h3>
+      </div>
+      <div class="panel-body text-center">
         <h6 class="card-subtitle mb-2 text-muted">{{ book.subTitle }}</h6>
         <div class="card-text">
           <span *ngFor="let category of book?.categories"
@@ -17,7 +19,7 @@
       <img class="book-thumbnail"
            src="{{book.smallThumbnail}}"
            alt="">
-      <div class="card-footer">
+      <div class="panel-footer">
         <span *ngIf="book.authors">
           by
           <span *ngFor="let author of book.authors; let isLast = last;">

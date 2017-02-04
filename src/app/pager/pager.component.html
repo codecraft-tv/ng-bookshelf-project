@@ -1,21 +1,15 @@
-<nav>
-  <ul  class="pagination justify-content-center">
-    <li class="page-item" [class.disabled]="page === 0">
-      <button class="page-link"
-         (click)="prev()">Previous
-      </button>
+<nav aria-label="...">
+  <ul class="pager">
+    <li>
+      <a
+        [class.disabled]="page === 0"
+        (click)="prev()"> &larr; Previous
+      </a>
     </li>
-    <!--<li *ngFor="let page of pages; let i = index;"-->
-        <!--class="page-item">-->
-      <!--<button *ngIf="i < 10"-->
-              <!--class="page-link"-->
-         <!--(click)="page(page)">{{ page }}-->
-      <!--</button>-->
-    <!--</li>-->
-    <li class="page-item">
-      <button class="page-link"
-         (click)="next()">Next
-      </button>
+    <li>
+      <a
+        (click)="next()">Next &rarr;
+      </a>
     </li>
   </ul>
 </nav>

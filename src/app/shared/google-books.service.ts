@@ -157,7 +157,7 @@ export class GoogleBooksService {
       item.volumeInfo.publisher,
       item.volumeInfo.publishedDate,
       item.volumeInfo.description,
-      item.volumeInfo.categories,
+      item.volumeInfo.categories ? item.volumeInfo.categories.map( (item) => item.split("/").pop() ) : ['N/A'],
       item.volumeInfo.imageLinks.thumbnail,
       item.volumeInfo.imageLinks.smallThumbnail
     )

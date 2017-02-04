@@ -1,39 +1,41 @@
-<div class="m-3 text-center">
-  <form class="form-inline"
-        (ngSubmit)="doSearch()">
-    <div class="form-group">
-      <input type="search"
-             class="form-control"
-             placeholder="Enter search string"
-             name="search"
-             [(ngModel)]="term"
-             required>
+<div class="container">
+  <div class="m-3 text-center">
+    <form class="form-inline"
+          (ngSubmit)="doSearch()">
+      <div class="form-group">
+        <input type="search"
+               class="form-control"
+               placeholder="Enter search string"
+               name="search"
+               [(ngModel)]="term"
+               required>
+      </div>
+      <button type="submit"
+              class="btn btn-primary">
+        Search
+      </button>
+    </form>
+    <hr />
+
+    <div class="text-center">
+      <p class="lead"
+         *ngIf="googleBooksService.initialised && googleBooksService.loading">Loading...</p>
+
+      <p class="lead"
+         *ngIf="googleBooksService.initialised && !googleBooksService.loading && googleBooksService.books?.length === 0">No results returned</p>
+
+      <p class="lead"
+         *ngIf="!googleBooksService.initialised">Enter a search string above and press search</p>
     </div>
-    <button type="submit"
-            class="btn btn-primary">
-      Search
-    </button>
-  </form>
-  <hr />
-
-  <div class="text-center">
-    <p class="lead"
-       *ngIf="googleBooksService.initialised && googleBooksService.loading">Loading...</p>
-
-    <p class="lead"
-       *ngIf="googleBooksService.initialised && !googleBooksService.loading && googleBooksService.books?.length === 0">No results returned</p>
-
-    <p class="lead"
-       *ngIf="!googleBooksService.initialised">Enter a search string above and press search</p>
   </div>
-</div>
 
-<app-book-list [books]="googleBooksService.books"></app-book-list>
+  <app-book-list [books]="googleBooksService.books"></app-book-list>
 
-<div class="d-flex justify-content-center">
-  <app-pager
-    [page]="googleBooksService.page"
-    [totalPages]="googleBooksService.totalPages"
-    (changePage)="googleBooksService.page = $event">
-  </app-pager>
+  <div class="d-flex justify-content-center">
+    <app-pager
+      [page]="googleBooksService.page"
+      [totalPages]="googleBooksService.totalPages"
+      (changePage)="googleBooksService.page = $event">
+    </app-pager>
+  </div>
 </div>

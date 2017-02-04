@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.mr-1 {
+  margin-right: 2px;
+}
+
+.ml-1 {
+  margin-left: 2px;
+}
+
+.m-1 {
+  margin: 1em;
+}
+
+.m-2 {
+  margin: 2em;
+}
+
+.m-3 {
+  margin: 3em;
+}

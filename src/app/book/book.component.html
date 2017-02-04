@@ -1,11 +1,11 @@
 <div class="row m-3">
-  <div class="col-md-6 offset-md-3">
-    <h4 class="text-center display-4">{{ book?.title }}</h4>
+  <div class="col-md-6 col-md-offset-3">
+    <h2 class="text-center">{{ book?.title }}</h2>
 
     <h6 class="text-center">{{ book?.subTitle }}</h6>
 
     <div class=" m-3">
-      <img class="rounded mx-auto d-block"
+      <img class="rounded center-block"
            src="{{ book?.thumbnail }}">
     </div>
 
@@ -20,7 +20,7 @@
       <dt>Categories</dt>
       <dd>
         <span *ngFor="let category of book?.categories"
-              class="badge badge-pill badge-default">
+              class="mr-1 badge badge-pill badge-default">
           {{ category }}
         </span>
       </dd>
