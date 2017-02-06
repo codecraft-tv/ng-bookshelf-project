@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Book} from "./book";
-import {LocalStorageService} from 'angular-2-local-storage';
 
 @Injectable()
 export class LibraryService {
 
   books: Book[] = [];
 
-  constructor(private localStorageService: LocalStorageService) {
+  constructor() {
     this.load();
   }
 
