@@ -5,7 +5,6 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
 import {BookComponent} from './book/book.component';
 import {BookListComponent} from './book-list/book-list.component';
 import {SearchComponent} from './search/search.component';
@@ -21,7 +20,6 @@ import {LocalStorageModule} from 'angular-2-local-storage';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     BookComponent,
     BookListComponent,
     SearchComponent,

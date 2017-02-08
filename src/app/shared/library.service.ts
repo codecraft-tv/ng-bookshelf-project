@@ -19,16 +19,16 @@ export class LibraryService {
     if (!savedBooks) {
       return
     }
-    console.log(savedBooks);
+    // console.log(savedBooks);
     savedBooks = JSON.parse(savedBooks);
-    console.log(savedBooks);
+    // console.log(savedBooks);
     for (let i = 0; i < savedBooks.length; i++) {
       let savedBook = savedBooks[i];
-      console.log(savedBook);
+      // console.log(savedBook);
       //noinspection TypeScriptValidateTypes,TypeScriptUnresolvedFunction
       this.books.push(Object.assign(new Book(null, null, null, null, null, null, null, null, null, null), savedBook));
     }
-    console.log(this.books);
+    // console.log(this.books);
   }
 
   addBook(book: Book) {

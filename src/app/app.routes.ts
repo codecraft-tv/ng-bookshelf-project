@@ -8,5 +8,4 @@ export const routes: Routes = [
   {path: 'library', pathMatch: 'full', component: LibraryComponent},
   {path: 'search', component: SearchComponent},
   {path: 'book/:bookId', component: BookComponent},
-  // {path: '**', component: LibraryComponent}
 ];
