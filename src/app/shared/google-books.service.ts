@@ -69,6 +69,8 @@ export class GoogleBooksService {
 
   retrieveBook(bookId: string) {
     return this.http.get(`${this.API_PATH}/${bookId}`)
+      .map(res => res.json())
+      .map(item => this.bookFactory(item))
   }
 
   private bookFactory(item: any): Book {
