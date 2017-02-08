@@ -27,8 +27,6 @@ fdescribe('LibraryService', () => {
       providers: [LibraryService]
     });
     libraryService = TestBed.get(LibraryService);
-    console.log(libraryService);
-    debugger;
   });
 
 
