@@ -14,7 +14,6 @@ import {routes} from "./app.routes";
 import {GoogleBooksService} from "./shared/google-books.service";
 import {PagerComponent} from './pager/pager.component';
 import {LibraryService} from "./shared/library.service";
-import {LocalStorageModule} from 'angular-2-local-storage';
 
 @NgModule({
   declarations: [
@@ -33,11 +32,7 @@ import {LocalStorageModule} from 'angular-2-local-storage';
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    LocalStorageModule.withConfig({
-      prefix: 'bookshelf-app',
-      storageType: 'localStorage'
-    })
+    RouterModule.forRoot(routes)
   ],
   providers: [GoogleBooksService, LibraryService],
   bootstrap: [AppComponent]
