@@ -1,11 +1,13 @@
 <div class="container">
   <div class="m-3 text-center">
-    <form class="form-inline">
+    <form class="form-inline"
+          (ngSubmit)="doSearch()">
       <div class="form-group">
         <input type="search"
                class="form-control"
                placeholder="Enter search string"
                name="search"
+               [(ngModel)]="term"
                required>
       </div>
       <button type="submit"
@@ -16,19 +18,23 @@
     <hr />
 
     <div class="text-center">
-      <!-- TODO: Show when we are calling the API -->
-      <p class="lead">Loading...</p>
+      <p *ngIf="googleBooksService.initialised && googleBooksService.loading"
+         class="lead">Loading...</p>
 
-      <!-- TODO: Show when no results are returned from the API -->
-      <p class="lead">No results returned</p>
+      <p *ngIf="googleBooksService.initialised && !googleBooksService.loading && googleBooksService.books?.length === 0"
+         class="lead">No results returned</p>
 
-      <!-- TODO: Show when the user hasn't performed a search yet -->
-      <p class="lead">Enter a search string above and press search</p>
+      <p *ngIf="!googleBooksService.initialised"
+         class="lead">Enter a search string above and press search</p>
     </div>
   </div>
 
+  <ul>
+    <li *ngFor="let book of googleBooksService.books">{{ book.title }}</li>
+  </ul>
+
   <!-- TODO: Show the results of the search -->
-  <app-book-list></app-book-list>
+  <!--<app-book-list></app-book-list>-->
 
   <div class="d-flex justify-content-center">
     <!-- TODO: Show pagnation -->
