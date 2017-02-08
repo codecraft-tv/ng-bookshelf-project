@@ -16,11 +16,11 @@
     <div class="navbar-collapse collapse"
          id="navbar-main">
       <ul class="nav navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link">Search</a>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['search']">Search</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">Library</a>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['library']">Library</a>
         </li>
       </ul>
     </div>
