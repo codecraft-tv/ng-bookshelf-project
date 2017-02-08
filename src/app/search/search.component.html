@@ -29,12 +29,7 @@
     </div>
   </div>
 
-  <ul>
-    <li *ngFor="let book of googleBooksService.books">{{ book.title }}</li>
-  </ul>
-
-  <!-- TODO: Show the results of the search -->
-  <!--<app-book-list></app-book-list>-->
+  <app-book-list [books]="googleBooksService.books"></app-book-list>
 
   <div class="d-flex justify-content-center">
     <app-pager [page]="googleBooksService.page"

@@ -1,73 +1,34 @@
 <div class="row m-3">
 
-  <div class="col-md-4 col-lg-3 col-sm-1">
+  <div *ngFor="let book of books"
+
+    class="col-md-4 col-lg-3 col-sm-1">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <a>Book Title 1</a>
+          <a [routerLink]="['/book', book.id]">{{ book.title }}</a>
         </h3>
       </div>
       <div class="panel-body text-center">
-        <h6 class="card-subtitle mb-2 text-muted">Book Subtitle</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{ book.subTitle }}</h6>
         <div class="card-text">
-          <span class="mr-1 badge badge-pill badge-default">
-            Category 1
-          </span>
-          <span class="mr-1 badge badge-pill badge-default">
-            Category 2
-          </span>
-          <span class="mr-1 badge badge-pill badge-default">
-            Category 3
+          <span *ngFor="let category of book.categories"
+                class="mr-1 badge badge-pill badge-default">
+            {{ category }}
           </span>
         </div>
       </div>
       <img class="book-thumbnail"
-           src="http://lorempixel.com/g/200/300/"
+           src="{{book.smallThumbnail}}"
            alt="">
       <div class="panel-footer">
-        <span>
+        <span *ngIf="book.authors">
           by
-          <span>
-            Asim Hussain
+          <span *ngFor="let author of book.authors; let isLast = last;">
+            {{ author }} <span *ngIf="!isLast">,</span>
           </span>
         </span>
       </div>
     </div>
   </div>
-
-  <div class="col-md-4 col-lg-3 col-sm-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <a>Book Title 2</a>
-        </h3>
-      </div>
-      <div class="panel-body text-center">
-        <h6 class="card-subtitle mb-2 text-muted">Book Subtitle</h6>
-        <div class="card-text">
-          <span class="mr-1 badge badge-pill badge-default">
-            Category 1
-          </span>
-          <span class="mr-1 badge badge-pill badge-default">
-            Category 2
-          </span>
-          <span class="mr-1 badge badge-pill badge-default">
-            Category 3
-          </span>
-        </div>
-      </div>
-      <img class="book-thumbnail"
-           src="http://lorempixel.com/g/200/300/"
-           alt="">
-      <div class="panel-footer">
-        <span>
-          by
-          <span>
-            Asim Hussain
-          </span>
-        </span>
-      </div>
-    </div>
-  </div>
-
 </div>
