@@ -19,7 +19,7 @@ function createBookFixture(book_id) {
   )
 }
 
-fdescribe('LibraryService', () => {
+describe('LibraryService', () => {
   let libraryService;
 
   beforeEach(() => {
@@ -30,31 +30,19 @@ fdescribe('LibraryService', () => {
   });
 
 
-  it('Adding a book', () => {
-    let book = createBookFixture("book_1");
-    libraryService.addBook(book);
-    expect(libraryService.books[0].id).toBe(book.id);
+  it('can add a book to the library', () => {
+    //TODO
   });
 
-  it('Removing a book', () => {
-    let book = createBookFixture("book_1");
-    libraryService.addBook(book);
-    libraryService.removeBook(book);
-    expect(libraryService.books.length).toBe(0);
+  it('can remove a book to the library', () => {
+    //TODO
   });
 
-  it('Checking if book in list', () => {
-    let book = createBookFixture("book_1");
-    libraryService.addBook(book);
-    expect(libraryService.hasBook(book)).toBe(true);
+  it('checks if a book is already in the library', () => {
+    //TODO
   });
 
-  it('Saving and loading', () => {
-    let book = createBookFixture("book_1");
-    libraryService.addBook(book);
-    libraryService.save();
-    libraryService.books = [];
-    libraryService.load();
-    expect(libraryService.hasBook(book)).toBe(true);
+  it('can save and load the books', () => {
+    //TODO
   });
 });
