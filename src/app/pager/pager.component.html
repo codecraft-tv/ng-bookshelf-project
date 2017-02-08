@@ -1,11 +1,11 @@
 <nav>
   <ul class="pager">
-    <li>
-      <a> &larr; Previous
+    <li [class.disabled]="page === 1">
+      <a (click)="prev()"> &larr; Previous
       </a>
     </li>
-    <li>
-      <a>Next &rarr;
+    <li [class.disabled]="page === totalPages">
+      <a  (click)="next()">Next &rarr;
       </a>
     </li>
   </ul>
