@@ -4,6 +4,5 @@
     </h4>
   </div>
 
-  <!-- TODO: Pass into app-book-list the books from the library service -->
-  <app-book-list></app-book-list>
+  <app-book-list [books]="libraryService.books"></app-book-list>
 </div>
