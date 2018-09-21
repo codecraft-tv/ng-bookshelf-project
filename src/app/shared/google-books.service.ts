@@ -1,6 +1,12 @@
-import 'rxjs/add/operator/map';
+/*import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/toPromise';*/
+
+//rxjs 6 imorts
+//do operator was renamed to tap
+import {Observable,} from 'rxjs';
+import { map,tap } from 'rxjs/operators';
+
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
@@ -52,19 +58,19 @@ export class GoogleBooksService {
     this.initialised = true;
     this.books = [];
     this.http.get(`${this.API_PATH}?q=${this.query}&maxResults=${this.pageSize}&startIndex=${this.startIndex}`)
-      .map(res => res.json())
-      .do(data => {
-        this.totalItems = data.totalItems;
-      })
-      .map(data => {
-        return data.items ? data.items : [];
-      })
-      .map(items => {
-        return items.map(item => this.bookFactory(item))
-      })
-      // .do(books => console.log(books))
-      .do(_ => this.loading = false)
-      .subscribe((books) => this.books = books)
+     .pipe(
+        map(res => res.json()),
+        tap(data => {
+          this.totalItems = data.totalItems;
+        }),
+        map(data => {
+          return data.items ? data.items : [];
+        }),
+        map(items => {
+          return items.map(item => this.bookFactory(item))
+        }),
+        tap(_ => this.loading = false)
+      ).subscribe((books) => this.books = books)
   }
 
   retrieveBook(bookId: string) {
